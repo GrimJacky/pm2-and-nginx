@@ -77,12 +77,4 @@ CMD ["/usr/bin/supervisord"]
 # Install GS to downgrade pdf files
 RUN apt-get update && apt-get -y install ghostscript && apt-get clean
 
-# RUN apt-get install php-imagick
-RUN apt-get update && apt-get install -y \
-  git libmagick++-dev \
-  --no-install-recommends && rm -r /var/lib/apt/lists/* && \
-  git clone https://github.com/mkoppanen/imagick.git && \
-  cd imagick && git checkout phpseven && phpize && ./configure && \
-  make && make install && \
-  docker-php-ext-enable imagick && \
-  cd ../ && rm -rf imagick
+RUN apt-get install php-imagick -y
