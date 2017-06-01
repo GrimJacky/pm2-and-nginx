@@ -76,5 +76,3 @@ CMD ["/usr/bin/supervisord"]
 
 # Install GS to downgrade pdf files
 RUN apt-get update && apt-get -y install ghostscript && apt-get clean
-
-RUN apt-get install php-imagick -y
