@@ -29,19 +29,19 @@ RUN apt-get autoremove -y && \
 
 RUN mkdir /run/php/
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
-RUN sed -i "s/display_errors = On/display_errors = Off/" /etc/php/7.0/fpm/php.ini
-RUN sed -i "s/post_max_size = 8M/post_max_size = 100M/" /etc/php/7.0/fpm/php.ini
-RUN sed -i "s/upload_max_filesize = 2M/upload_max_filesize = 100M/" /etc/php/7.0/fpm/php.ini
-RUN sed -i "s/user = www-data/user = root/" /etc/php/7.0/fpm/pool.d/www.conf
-RUN sed -i "s/group = www-data/group = root/" /etc/php/7.0/fpm/pool.d/www.conf
+RUN sed -i "s/display_errors = On/display_errors = Off/" /etc/php/7.1/fpm/php.ini
+RUN sed -i "s/post_max_size = 8M/post_max_size = 100M/" /etc/php/7.1/fpm/php.ini
+RUN sed -i "s/upload_max_filesize = 2M/upload_max_filesize = 100M/" /etc/php/7.1/fpm/php.ini
+RUN sed -i "s/user = www-data/user = root/" /etc/php/7.1/fpm/pool.d/www.conf
+RUN sed -i "s/group = www-data/group = root/" /etc/php/7.1/fpm/pool.d/www.conf
 
 # Supervisor conf
 RUN echo "[supervisord]" >> /etc/supervisor/supervisord.conf
 RUN echo "nodaemon = true" >> /etc/supervisor/supervisord.conf
 RUN echo "user = root" >> /etc/supervisor/supervisord.conf
 
-RUN echo "[program:php-fpm7.0]" >> /etc/supervisor/supervisord.conf
-RUN echo "command = /usr/sbin/php-fpm7.0 -FR" >> /etc/supervisor/supervisord.conf
+RUN echo "[program:php-fpm7.1]" >> /etc/supervisor/supervisord.conf
+RUN echo "command = /usr/sbin/php-fpm7.1 -FR" >> /etc/supervisor/supervisord.conf
 RUN echo "autostart = true" >> /etc/supervisor/supervisord.conf
 RUN echo "autorestart = true" >> /etc/supervisor/supervisord.conf
 
