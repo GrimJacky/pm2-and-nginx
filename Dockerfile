@@ -21,7 +21,8 @@ RUN apt-get install -y \
     php7.1-mcrypt \
     php7.1-mbstring \
     php7.1-gd \
-    php7.1-xml
+    php7.1-xml \
+    php7.1-apcu
 
 RUN apt-get autoremove -y && \
     apt-get clean && \
