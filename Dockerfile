@@ -52,4 +52,4 @@ CMD ["/usr/bin/supervisord"]
 # Install node
 RUN npm install -g n
 RUN n stable
-RUN npm install -g webpack webpack-cli pm-2
+RUN npm install -g webpack webpack-cli pm2
